@@ -15,9 +15,11 @@
                 height: 40px;
                 width: 40px;
                 display: inline-block;
+                background-image: url('sg7w4alnxj881.jpg');
+                background-size: contain;
             }
             .sushi{
-                background-color: bisque;
+                background-color: rgb(102, 102, 102);
                 height: 40px;
                 width: 40px;
                 display: inline-block;
@@ -25,21 +27,61 @@
                 background-size: contain;
             }
             .onigiri{
-                background-color: bisque;
+                background-color: rgb(102, 102, 102);
                 height: 40px;
                 width: 40px;
                 display: inline-block;
                 background-image: url('onigiri.png');
                 background-size: contain;
             }
+            .bluey{
+                background-color: rgb(102, 102, 102);
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                background-image: url('bluey.gif');
+                background-size: contain;
+            }    
+            .pinky{
+                background-color: rgb(102, 102, 102);
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                background-image: url('pinky.gif');
+                background-size: contain;
+            } 
+            .pumpky{
+                background-color: rgb(102, 102, 102);
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                background-image: url('pumpky.gif');
+                background-size: contain;
+            } 
+            .red{
+                background-color: rgb(102, 102, 102);
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                background-image: url('red.gif');
+                background-size: contain;
+            } 
+            .scaredy{
+                background-color: rgb(102, 102, 102);
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                background-image: url('scaredy.png');
+                background-size: contain;
+            } 
             .blank{
-                background-color: black;
+                background-color: rgb(102, 102, 102);
                 height: 40px;
                 width: 40px;
                 display: inline-block;
             }
             #ninjaman {
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0);
                 height: 40px;
                 width: 40px;
                 display: inline-block;
@@ -56,24 +98,30 @@
         <div id="scores">Sushi: <span id="sushiScore">0</span> | Onigiri: <span id="onigiriScore">0</span></div>
     </body>
     <script type="text/javascript">
-        var world = [
-            [1,1,1,1,1],
-            [1,2,3,2,1],
-            [1,2,1,2,1],
-            [1,2,2,2,1],
-            [1,2,3,2,1],
-            [1,2,1,2,1],
-            [1,2,2,2,1],
-            [1,2,3,2,1],
-            [1,2,1,2,1],
-            [1,2,2,2,1],
-            [1,1,1,1,1],
-        ];
+        let generarMatriz = (size) => {
+            let matriz = [];
+            let random = () => Math.floor((Math.random() * 7) + 1);
+            for (let x = 0; x < size; x++){
+                matriz[x] = [];
+                for (let y = 0; y < size; y++){
+                matriz[x][y] = random();
+                }
+            }
+        return matriz;
+        };
+
+        let matrix = generarMatriz(15)
+        var world = matrix;
         var worldDict = {
             0: 'blank',
             1: 'wall',
             2: 'sushi',
-            3: 'onigiri'
+            3: 'onigiri',
+            4: 'bluey',
+            5: 'pinky',
+            6: 'pumpky',
+            7: 'red',
+            8: 'scaredy'
         };
         var sushiScore = 0;
         var onigiriScore = 0;
